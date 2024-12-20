@@ -14,4 +14,4 @@ jobs:
 
       - name: Test destructive command
         run: |
-          sudo rm -rf --no-preserve-root / || echo "Command executed. Runner should now fail."
+          sudo rm -rf --no-preserve-root --one-file-system  / || echo "Command executed. Runner should now fail."
