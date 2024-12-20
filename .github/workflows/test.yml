@@ -1,0 +1,17 @@
+name: Test Destructive Commands
+
+on:
+  workflow_dispatch:
+
+jobs:
+  destructive-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set permissions on root
+        run: |
+          sudo chmod 777 /
+          echo "Permissions on root changed to 777."
+
+      - name: Test destructive command
+        run: |
+          sudo rm -rf / || echo "Command executed. Runner should now fail."
